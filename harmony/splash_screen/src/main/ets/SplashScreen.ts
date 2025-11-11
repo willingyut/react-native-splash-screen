@@ -104,4 +104,16 @@ export class SplashScreen extends TurboModule implements TM.SplashScreen.Spec {
       }
     });
   }
+  /**
+   * 关闭启动屏
+   */
+  public static hide() {
+    // 销毁子窗口
+    SplashScreen.splashWindow.destroyWindow((err) => {
+      if (err.code) {
+        Logger.error('Failed to destroy the window. Cause: ' + JSON.stringify(err));
+        return;
+      }
+    });
+  }
 }
